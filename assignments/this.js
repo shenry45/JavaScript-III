@@ -18,15 +18,42 @@
 
 // code example for Window Binding
 this.name = 'Zeus';
-console.log(window.name);
+// console.log(window.name);
 
 // Principle 2
 
 // code example for Implicit Binding
+const person = el => {
+  el.talk = function() {
+    console.log(`Hi there. My name is ${this.name} and I am from ${this.location}`);
+    // console.log(this);
+  };
+}
+
+const shawn = {
+  name: 'Shawn',
+  location: 'Lake Havasu City' 
+};
+
+person(shawn);
+
+shawn.talk();
+
 
 // Principle 3
 
 // code example for New Binding
+function Animal(name, weight) {
+  this.name = name;
+  this.weight = weight; //lbs
+  this.describe = function() {
+    console.log(`My species is ${name} and our average weight is ${weight} lbs.`);
+  }
+}
+
+const cheetah = new Animal('cheetah', 294);
+
+cheetah.describe();
 
 // Principle 4
 
