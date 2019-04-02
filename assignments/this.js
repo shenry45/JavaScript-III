@@ -25,7 +25,7 @@ this.name = 'Zeus';
 // code example for Implicit Binding
 const person = el => {
   el.talk = function() {
-    console.log(`Hi there. My name is ${this.name} and I am from ${this.location}`);
+    console.log(`Hi there. My name is ${this.name} and I am from ${this.location}.`);
     // console.log(this);
   };
 }
@@ -58,3 +58,15 @@ cheetah.describe();
 // Principle 4
 
 // code example for Explicit Binding
+const worker = {
+  describe: function() {
+    console.log(`My role is ${this.job} here and I get paid $${this.salary} a year.`);
+  }
+}
+
+const positions = {
+    job: 'Floor Director',
+    salary: 48000
+  };
+
+worker.describe.apply(positions);
